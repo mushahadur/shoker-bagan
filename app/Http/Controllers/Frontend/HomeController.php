@@ -16,6 +16,9 @@ class HomeController extends Controller
     public function blog(){
         return view('frontend.pages.blog.index');
     }
+    public function blogDetails(){
+        return view('frontend.pages.blog.details');
+    }
     public function faqs(){
         return view('frontend.pages.faqs.index');
     }

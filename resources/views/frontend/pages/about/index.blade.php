@@ -3,7 +3,7 @@
     About Page
 @endsection
 @section('contain')
-<main id="main">
+<main id="main" id="about">
   <!-- About Page Title & Breadcrumbs -->
   <div data-aos="fade" class="page-title pt-3">
     <div class="heading">
@@ -19,7 +19,7 @@
     <nav class="breadcrumbs">
       <div class="container">
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{{ route('home') }}">Home</a></li>
           <li class="current">About</li>
         </ol>
       </div>
@@ -27,7 +27,7 @@
   </div><!-- End Page Title -->
   
    <!-- About Section - Home Page -->
-   <section id="about" class="about" style="background-color:#fffffff2;">
+   <section  class="about" style="background-color:#fffffff2;">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row align-items-xl-center gy-5">

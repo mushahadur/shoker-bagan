@@ -1,9 +1,9 @@
 @extends('frontend.layout.app')
 @section('title')
-    About Page
+    Blog Page
 @endsection
 @section('contain')
-<main id="main">
+<main id="main" id="blog">
 
   <!-- Blog Page Title & Breadcrumbs -->
   <div data-aos="fade" class="page-title">
@@ -20,7 +20,7 @@
     <nav class="breadcrumbs" style="padding: 30px 0!important;">
       <div class="container">
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{{ route('home') }}">Home</a></li>
           <li class="current">Blog</li>
         </ol>
       </div>
@@ -28,7 +28,7 @@
   </div><!-- End Page Title -->
 
   <!-- Blog Section - Blog Page -->
-  <section id="blog" class="blog">
+  <section class="blog">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -38,13 +38,13 @@
           <article>
 
             <div class="post-img">
-              <img src="{{ asset('/') }}assets/frontend/img/blog/blog-1.jpg" alt="" class="img-fluid">
+              <img src="{{ asset('/') }}assets/frontend/img/blog/3.jpg" alt="" class="img-fluid">
             </div>
 
             <p class="post-category">Politics</p>
 
             <h2 class="title">
-              <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
+              <a href="{{ route('blog.details') }}">Dolorum optio tempore voluptas dignissimos</a>
             </h2>
 
             <div class="d-flex align-items-center">
@@ -64,13 +64,13 @@
           <article>
 
             <div class="post-img">
-              <img src="{{ asset('/') }}assets/frontend/img/blog/blog-2.jpg" alt="" class="img-fluid">
+              <img src="{{ asset('/') }}assets/frontend/img/blog/1.jpg" alt="" class="img-fluid">
             </div>
 
             <p class="post-category">Sports</p>
 
             <h2 class="title">
-              <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
+              <a href="{{ route('blog.details') }}">Nisi magni odit consequatur autem nulla dolorem</a>
             </h2>
 
             <div class="d-flex align-items-center">
@@ -90,13 +90,13 @@
           <article>
 
             <div class="post-img">
-              <img src="{{ asset('/') }}assets/frontend/img/blog/blog-3.jpg" alt="" class="img-fluid">
+              <img src="{{ asset('/') }}assets/frontend/img/blog/7.jpg" alt="" class="img-fluid">
             </div>
 
             <p class="post-category">Entertainment</p>
 
             <h2 class="title">
-              <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
+              <a href="{{ route('blog.details') }}">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
             </h2>
 
             <div class="d-flex align-items-center">
@@ -116,13 +116,13 @@
           <article>
 
             <div class="post-img">
-              <img src="{{ asset('/') }}assets/frontend/img/blog/blog-4.jpg" alt="" class="img-fluid">
+              <img src="{{ asset('/') }}assets/frontend/img/blog/4.jpg" alt="" class="img-fluid">
             </div>
 
             <p class="post-category">Sports</p>
 
             <h2 class="title">
-              <a href="blog-details.html">Non rem rerum nam cum quo minus olor distincti</a>
+              <a href="{{ route('blog.details') }}">Non rem rerum nam cum quo minus olor distincti</a>
             </h2>
 
             <div class="d-flex align-items-center">
@@ -142,13 +142,13 @@
           <article>
 
             <div class="post-img">
-              <img src="{{ asset('/') }}assets/frontend/img/blog/blog-5.jpg" alt="" class="img-fluid">
+              <img src="{{ asset('/') }}assets/frontend/img/blog/5.jpg" alt="" class="img-fluid">
             </div>
 
             <p class="post-category">Politics</p>
 
             <h2 class="title">
-              <a href="blog-details.html">Accusamus quaerat aliquam qui debitis facilis consequatur</a>
+              <a href="{{ route('blog.details') }}">Accusamus quaerat aliquam qui debitis facilis consequatur</a>
             </h2>
 
             <div class="d-flex align-items-center">
@@ -168,13 +168,13 @@
           <article>
 
             <div class="post-img">
-              <img src="{{ asset('/') }}assets/frontend/img/blog/blog-6.jpg" alt="" class="img-fluid">
+              <img src="{{ asset('/') }}assets/frontend/img/blog/6.jpg" alt="" class="img-fluid">
             </div>
 
             <p class="post-category">Entertainment</p>
 
             <h2 class="title">
-              <a href="blog-details.html">Distinctio provident quibusdam numquam aperiam aut</a>
+              <a href="{{ route('blog.details') }}">Distinctio provident quibusdam numquam aperiam aut</a>
             </h2>
 
             <div class="d-flex align-items-center">
