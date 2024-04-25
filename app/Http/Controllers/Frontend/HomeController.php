@@ -25,4 +25,10 @@ class HomeController extends Controller
     public function contact(){
         return view('frontend.pages.contact.index');
     }
+    public function login(){
+        return view('auth.login');
+    }
+    public function register(){
+        return view('auth.register');
+    }
 }

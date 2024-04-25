@@ -30,7 +30,7 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav><!-- End Nav Menu -->
 
-      <a class="btn-getstarted" href="{{ route('home') }}#about">Get Started</a>
+      <a class="btn-getstarted" href="{{ route('login') }}">Get Started</a>
 
     </div>
   </header>
