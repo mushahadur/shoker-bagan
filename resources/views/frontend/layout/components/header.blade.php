@@ -13,7 +13,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="{{ route('home') }}" class="active">Home</a></li>
-          <li><a href="{{ route('about') }}#about">About</a></li>
+          <li><a href="{{ route('about') }}">About</a></li>
           <li class="dropdown has-dropdown"><a href="{{ route('about') }}"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
             <ul class="dd-box-shadow">
               <li><a href="#">User</a></li>
@@ -22,15 +22,15 @@
               <li><a href="#">Pure Product</a></li>
             </ul>
           </li>
-          <li><a href="{{ route('blog') }}#blog">Blog</a></li>
-          <li><a href="{{ route('faqs') }}#faq">FAQ's</a></li>
-          <li><a href="{{ route('contact') }}#contact">Contact</a></li>
+          <li><a href="{{ route('blog') }}">Blog</a></li>
+          <li><a href="{{ route('faqs') }}">FAQ's</a></li>
+          <li><a href="{{ route('contact') }}">Contact</a></li>
         </ul>
 
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav><!-- End Nav Menu -->
 
-      <a class="btn-getstarted" href="index.html#about">Get Started</a>
+      <a class="btn-getstarted" href="{{ route('home') }}#about">Get Started</a>
 
     </div>
   </header>
