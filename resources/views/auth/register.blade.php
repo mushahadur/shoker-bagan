@@ -65,6 +65,22 @@
                         <span style="color: red">{{$message}}</span>
                     @enderror
                     <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input_field">
+                    <div class="row" style="padding-left: 38px; padding-top:10px">
+                        <div class="col-12">
+                            <input class="form-check-input" type="radio" name="userRole" id="user" value="3">
+                            <label class="form-check-label" for="user">User</label>
+                            <input class="form-check-input" type="radio" name="userRole" id="nursery" value="2">
+                            <label class="form-check-label" for="nursery">Nursery</label>
+                            <input class="form-check-input" type="radio" name="userRole" id="consultant" value="1">
+                            <label class="form-check-label" for="consultant">Consultant</label>
+                        </div>
+                    </div>
+                    @error('userRole')
+                        <span style="color: red">{{$message}}</span>
+                    @enderror
+                    <i class="fas fa-users"></i>
 
                 </div>
                 <div class="input_field">
