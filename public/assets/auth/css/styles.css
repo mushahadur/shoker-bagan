@@ -14,7 +14,7 @@
   width: 100%;
   height: auto;
   background: rgb(255, 252, 252);
-  padding: 50px 45px;
+  padding: 30px 35px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -22,7 +22,7 @@
   border-radius: 20px;
 }
 .title{
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: center;
   font-size: 29px;
   font-weight: bold;
