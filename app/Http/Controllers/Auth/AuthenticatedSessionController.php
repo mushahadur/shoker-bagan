@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(route('admin.dashboard', absolute: false));
         }
         elseif($loggedInUerRole == 2){
-            return redirect()->intended(route('nurseryWoner.dashboard', absolute: false));
+            return redirect()->intended(route('nurseryOwner.dashboard', absolute: false));
         }
         elseif($loggedInUerRole == 3){
             return redirect()->intended(route('consultant.dashboard', absolute: false));

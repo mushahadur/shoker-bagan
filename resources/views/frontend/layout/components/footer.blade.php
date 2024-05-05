@@ -42,7 +42,7 @@
           <p> Birulia 1216, Dhaka</p>
           <p>Bangladesh</p>
           <p class="mt-2"><strong>Phone:</strong> <a  href="tel:+4733378901"><span>+880188-7698798</span></a></p>
-          <p ><strong>Email:</strong><a  href="mail:info@example.com"> <span>info@example.com</span></a></p>
+          <p ><strong>Email:</strong><a  href="mailto:faysalfarabi27@gmail.com"> <span>faysalfarabi27@gmail.com</span></a></p>
         </div>
 
       </div>
@@ -51,7 +51,7 @@
     <div class="container copyright text-center mt-4">
       <p>&copy; <span>Copyright</span> <strong class="px-1">Shoker Bagan </strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">❤ Anisur Rahman Faysal</a>
+        Designed by <a href="https://anisurrahman.com/">❤ Anisur Rahman Faysal</a>
       </div>
     </div>
 

@@ -25,7 +25,7 @@ class AdminMiddleware
             return $next($request);
         }
         elseif($uerRole == 2){
-            return redirect()->route('nurseryWoner.dashboard');
+            return redirect()->route('nurseryOwner.dashboard');
         }
         elseif($uerRole == 3){
             return redirect()->route('consultant.dashboard');
