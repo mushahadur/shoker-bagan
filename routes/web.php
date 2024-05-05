@@ -3,10 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Backend\Admin\DashboardController;
+use App\Http\Controllers\Backend\Admin\UserController;
+use App\Http\Controllers\Backend\User\UserDashboardController;
+use App\Http\Controllers\Backend\NurseryOwner\NurseryDashboardController;
+use App\Http\Controllers\Backend\NurseryOwner\ProdictController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'home')->name("home");
@@ -20,39 +23,32 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 
+// ********** Admin Routes ********* role == 1
+Route::group(['prefix' => 'admin','middleware' => ['auth','verified', 'admin']], function() {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/profile', [DashboardController::class, 'profile'])->name('admin.profile');
+    Route::get('/web-visitor', [DashboardController::class, 'webVisitor'])->name('web.visitor');
+    Route::resource('/users', UserController::class);
+    Route::get('/product-list', [DashboardController::class, 'productList'])->name('admin.product');
+});
 
-// User Route
-Route::get('user/dashboard', function () {
-    return view('backend.test.user.dashboard');
-})->middleware(['auth','verified', 'user'])->name('user.dashboard');
+// ********** User Routes ********* role == 4
+Route::group(['prefix' => 'user','middleware' => ['auth','verified', 'user']], function() {
+    Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
+    Route::get('/profile', [UserDashboardController::class, 'profile'])->name('user.profile');
+});
 
-// // Super Admin Route
-Route::get('/nursery-woner/dashboard', function () {
-    return view('backend.test.nursery.dashboard');
-})->middleware(['auth','verified', 'nursery_woner'])->name('nurseryWoner.dashboard');
-
-// Admin Route
-Route::get('/admin/dashboard', function () {
-    return view('backend.test.admin.dashboard');
-})->middleware(['auth','verified', 'admin'])->name('admin.dashboard');
-
-// My Controll Route
-Route::get('/consultant/dashboard', function () {
-    return view('backend.test.consultant.dashboard');
-})->middleware(['auth','verified', 'consultant'])->name('consultant.dashboard');
-
-
-
+// **********  Nursery Owner Route ********* role == 2
+Route::group(['prefix' => 'nursery-owner','middleware' => ['auth','verified', 'nursery_owner']], function() {
+    Route::get('/dashboard', [NurseryDashboardController::class, 'index'])->name('nurseryOwner.dashboard');
+    Route::get('/profile', [NurseryDashboardController::class, 'profile'])->name('nursery_owner.profile');
+    Route::resource('/product', ProdictController::class);
+});
 
 
-
-
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// ********** Consultant Routes ********* role == 3
+Route::group(['prefix' => 'consultant','middleware' => ['auth','verified', 'consultant']], function() {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('consultant.dashboard');
 });
 
 require __DIR__.'/auth.php';
