@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\VisitorModel;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\NurseryOwner\Product;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function home(){
-        Auth::logout();
+        // Visitor IP track
         $userIP = $_SERVER['REMOTE_ADDR'];
         date_default_timezone_set("Asia/Dhaka");
         $timeDate = date('y-m-d h:i:sa');
         VisitorModel::insert(['ip_address'=>$userIP, 'visit_time'=>$timeDate]);
-        return view('frontend.pages.home.index');
+
+        //Get Products
+        $products = Product::orderBy('id', 'DESC')->get();
+        return view('frontend.pages.home.index', compact('products'));
     }
     public function about(){
         return view('frontend.pages.about.index');

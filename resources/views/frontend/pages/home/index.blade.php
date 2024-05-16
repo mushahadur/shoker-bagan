@@ -215,62 +215,36 @@
           <h2>Buy Now</h2>
           <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
         </div><!-- End Section Title -->
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3 p-1 thumbnail-container" >
-                <img  class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/1.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/2.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/3.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/5.webp" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
+        <div class="container layout_padding">
+          <div class="product_container">
+            @foreach ($products as $product)
+            @if($product->status == "active")
+              <a href="">
+                <div class="product_box">
+                  <div class="product_img-box">
+                    <img src="{{asset('/storage/product-images/'.$product->image)}}" alt="" style="height: 220px">
+                    <span>
+                      Sale
+                    </span>
+                  </div>
+                  <div class="product_detail-box">
+                    <span>
+                      TK. {{$product->price}}
+                    </span>
+                    <p>
+                      {{$product->name}}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            @endif
+            @endforeach 
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 p-1 thumbnail-container" >
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/6.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/7.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/11.webp" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/10.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-        </div>
-          <!-- Features Item -->
         </div>
       </section><!-- End Features Section -->
+    
+    
 
     <!-- Features Section - Home Page -->
     <section id="features" class="features">
