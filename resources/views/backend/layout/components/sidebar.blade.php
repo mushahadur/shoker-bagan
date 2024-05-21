@@ -14,9 +14,9 @@
         @include('backend.layout.components.include.sidebar._nursery_owner_sidebar')
     @elseif(Auth::user()->role == 3)
         <!-- Menu Type 3 -->
-        Conseltrant
+        @include('backend.layout.components.include.sidebar._consultant_sidebar')
     @elseif(Auth::user()->role == 4)
-        <!-- Menu Type 3 -->
+        <!-- Menu Type 4 -->
         @include('backend.layout.components.include.sidebar._user_sidebar')
     @endif
     

@@ -12,9 +12,9 @@
             @include('backend.layout.components.include.header._nursery_owner_header')
         @elseif(Auth::user()->role == 3)
             <!-- Menu Type 3 -->
-            Conseltrant
+            @include('backend.layout.components.include.header._consultant_header')
         @elseif(Auth::user()->role == 4)
-            <!-- Menu Type 3 -->
+            <!-- Menu Type 4 -->
            @include('backend.layout.components.include.header._user_header')
         @endif
     

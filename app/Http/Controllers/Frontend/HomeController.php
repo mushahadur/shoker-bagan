@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\User;
 use App\Models\VisitorModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,10 +37,25 @@ class HomeController extends Controller
     public function contact(){
         return view('frontend.pages.contact.index');
     }
+
+    public function allProduct(){
+        $products = Product::where('status','=','active')->orderBy('id', 'DESC')->get();
+        // dd($products);
+        return view('frontend.pages.products.index', compact('products'));
+    }
+    
+    public function allConsultant(){
+        $consultants = User::where('role','=','3')->orderBy('id', 'DESC')->get();
+        // dd($consultants);
+        return view('frontend.pages.consultants.index', compact('consultants'));
+    }
+
+    // Auth Section
     public function login(){
         return view('auth.login');
     }
     public function register(){
         return view('auth.register');
     }
+   
 }

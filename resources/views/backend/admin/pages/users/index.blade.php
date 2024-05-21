@@ -22,11 +22,6 @@
             <div class="card-body">
             <div class="d-flex justify-content-between">
               <h5 class="card-title">User List</h5>
-              <div class="py-3">
-              <a  href="#" class="btn btn-primary" title="Add User">
-               <i class="ri-user-add-fill pa-3"></i>
-              </a>
-              </div>
             </div>
 
               <!-- Table with stripped rows -->
@@ -75,9 +70,6 @@
                         </a>
                         <a href="#" class="btn btn-outline-info" title="User Status">
                             <i class="bi bi-arrow-down-circle"></i>
-                        </a>
-                        <a href="#" class="btn btn-outline-primary" title="User Edit">
-                            <i class="ri-edit-box-line"></i>
                         </a>
                         <a href="#" class="btn btn-outline-danger" title="User Delete">
                             <i class="bi bi-trash-fill"></i>

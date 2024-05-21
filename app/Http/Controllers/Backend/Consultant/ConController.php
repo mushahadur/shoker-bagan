@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Backend\NurseryOwner;
+namespace App\Http\Controllers\Backend\Consultant;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
-class NurseryDashboardController extends Controller
+class ConController extends Controller
 {
     public function index(){
-        return view('backend.nursery-owner.dashboard');
+        return view('backend.consultant.dashboard');
+        $sessionId = Session::getId();
     }
-    
     public function profile(){
         $user = Auth::user();
-        return view('backend.nursery-owner.pages.profile.index', compact('user'));
+        return view('backend.consultant.pages.profile.index', compact('user'));
     }
     public function profileUpdate(Request $request, $id)
     {
         $user = User::find($id);
-        // dd($request->all());
         if ($request->hasFile('image')) {
-            $destinationPath = 'public/user/profile-images/';
+            $destinationPath = 'public/consultant/profile-images/';
             $image = $request->file('image');
             $fileName = time() . '.' . $image->getClientOriginalExtension();
             $image->storeAs($destinationPath, $fileName);
@@ -40,9 +40,9 @@ class NurseryDashboardController extends Controller
         $user->instagram_link = $request->instagram_link;
         $user->linkedin_link = $request->linkedin_link;
         $user->update();
-        return redirect(route('nursery_owner.profile'))->with('message', 'Active Status update to Inactive successfully.');
+        return redirect(route('consultant.profile'))->with('message', 'Active Status update to Inactive successfully.');
     }
     public function faq(){
-        return view('backend.user.pages.faq.index');
+        return view('backend.consultant.pages.faq.index');
     }
 }

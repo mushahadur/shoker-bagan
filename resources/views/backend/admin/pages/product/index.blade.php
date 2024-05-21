@@ -54,7 +54,14 @@
                         <td>{{$product->stock}}</td>
                         <td>{{$product->category}}</td>
                         <td><img src="{{asset('/storage/product-images/'.$product->image)}}" alt="{{$product->image}}" height="50" width="60"/></td>
-                        <td>{{$product->status}}</td>
+                        {{-- <td>{{$product->status}}</td> --}}
+                        @if ($product->status == 'active')
+                        <td><span class="badge bg-success">Active</span></td>
+                        
+                        @else
+                        <td><span class="badge bg-warning">Inactive</span></td>
+                        
+                        @endif
                         <td>
                           <a href="{{ route('product.details', ['id' => $product->id]) }}" class="btn btn-outline-success" title="Product Details">
                             <i class="bi bi-info-circle"></i>

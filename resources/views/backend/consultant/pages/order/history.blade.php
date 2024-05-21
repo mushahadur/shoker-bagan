@@ -1,15 +1,15 @@
 @extends('backend.layout.app')
 @section('title')
-    Consultant Order List
+    User Order History
 @endsection
 @section('contain')
     <div class="pagetitle">
-        <h1>Consultant Order List</h1>
+        <h1>User Order History</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item">Pages</li>
-                <li class="breadcrumb-item active">Order List</li>
+                <li class="breadcrumb-item active">Order History</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -20,7 +20,7 @@
                 <div class="card recent-sales overflow-auto">
 
                     <div class="card-body">
-                        <h5 class="card-title">Order List <span>| Today</span></h5>
+                        <h5 class="card-title">Order History <span>| Month</span></h5>
 
                         <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                             <div class="datatable-top">
@@ -68,11 +68,12 @@
                                             <td scope="row"><a href="#">#2457</a></td>
                                             <td>Brandon Jacob</td>
                                             <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                            <td><img src="{{ asset('/storage/user/profile-images/' .Auth::user()->image) }}" alt="" height="50" width="60"></td>
+                                            <td><img src="{{ asset('/storage/user/profile-images/' . Auth::user()->image) }}"
+                                                    alt="" height="50" width="60"></td>
                                             <td>$64</td>
-                                            <td class="green"><span class="badge bg-success">Approved</span></td>
+                                            <td class="green"><span class="badge bg-info">Shifted</span></td>
                                         </tr>
-                                       
+
                                     </tbody>
                                 </table>
                             </div>

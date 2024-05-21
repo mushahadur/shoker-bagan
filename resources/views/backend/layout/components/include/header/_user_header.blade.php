@@ -161,7 +161,11 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="{{route('user.dashboard')}}" data-bs-toggle="dropdown">
+            @if (Auth::user()->image)
             <img src="{{ asset('/storage/user/profile-images/' .Auth::user()->image) }}" alt="Profile" class="rounded-circle">
+            @else
+            <img src="{{ asset('/') }}assets/frontend/img/default_profile.png" alt="Profile" class="rounded-circle">
+            @endif
             <span class="d-none d-md-block dropdown-toggle ps-2">{{Auth::user()->name}}</span>
           </a><!-- End Profile Iamge Icon -->
 

@@ -1,10 +1,10 @@
 @extends('backend.layout.app')
 @section('title')
-    Consultant Order List
+    User Order List
 @endsection
 @section('contain')
     <div class="pagetitle">
-        <h1>Consultant Order List</h1>
+        <h1>User Order List</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>

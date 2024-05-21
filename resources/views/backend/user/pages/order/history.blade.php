@@ -1,10 +1,10 @@
 @extends('backend.layout.app')
 @section('title')
-    User Order History
+    Consultant Order History
 @endsection
 @section('contain')
     <div class="pagetitle">
-        <h1>User Order History</h1>
+        <h1>Consultant Order History</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>

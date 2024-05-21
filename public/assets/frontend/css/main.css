@@ -839,7 +839,7 @@ section {
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: #fffbfb;
   padding: 20px 0;
   overflow: clip;
 }
@@ -849,7 +849,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 25px;
 }
 
 .section-title h2 {
