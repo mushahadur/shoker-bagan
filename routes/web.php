@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Backend\Admin\UserController;
+use App\Http\Controllers\Backend\Consultant\ConController;
 use App\Http\Controllers\Backend\User\UserOrderController;
 use App\Http\Controllers\Backend\Admin\DashboardController;
 use App\Http\Controllers\Backend\User\UserDashboardController;
+use App\Http\Controllers\Backend\Consultant\ConOrderController;
 use App\Http\Controllers\Backend\NurseryOwner\ProdictController;
 use App\Http\Controllers\Backend\NurseryOwner\NurseryDashboardController;
 
@@ -19,6 +21,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/blog-details', 'blogDetails')->name("blog.details");
     Route::get('/faqs', 'faqs')->name("faqs");
     Route::get('/contact', 'contact')->name("contact");
+    Route::get('/all-product', 'allProduct')->name("all.products");
+    Route::get('/all-consultants', 'allConsultant')->name("all.consultants");
+
     Route::get('/login', 'login')->name("login");
     Route::get('/register', 'register')->name("register");
 });
@@ -58,13 +63,22 @@ Route::group(['prefix' => 'user','middleware' => ['auth','verified', 'user']], f
 Route::group(['prefix' => 'nursery-owner','middleware' => ['auth','verified', 'nursery_owner']], function() {
     Route::get('/dashboard', [NurseryDashboardController::class, 'index'])->name('nurseryOwner.dashboard');
     Route::get('/profile', [NurseryDashboardController::class, 'profile'])->name('nursery_owner.profile');
+    Route::post('/update-profile/{id}', [NurseryDashboardController::class, 'profileUpdate'])->name('update.profile');
     Route::resource('/product', ProdictController::class);
 });
 
 
 // ********** Consultant Routes ********* role == 3
 Route::group(['prefix' => 'consultant','middleware' => ['auth','verified', 'consultant']], function() {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('consultant.dashboard');
+    Route::get('/dashboard', [ConController::class, 'index'])->name('consultant.dashboard');
+    Route::get('/faq', [ConController::class, 'faq'])->name('consultant.faq');
+    //For Profile
+    Route::get('/profile', [ConController::class, 'profile'])->name('consultant.profile');
+    Route::post('/update-profile/{id}', [ConController::class, 'profileUpdate'])->name('update.profile');
+
+    //For Order Controller
+    Route::get('/order-list', [ConOrderController::class, 'index'])->name('consultant.orderList');
+    Route::get('/order-history', [ConOrderController::class, 'orderHistory'])->name('consultant.orderHistory');
 });
 
 require __DIR__.'/auth.php';

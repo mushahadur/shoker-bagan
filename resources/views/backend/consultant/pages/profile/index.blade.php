@@ -1,6 +1,6 @@
 @extends('backend.layout.app')
 @section('title')
-    Nursery Owner Profile
+Consultant Profile
 @endsection
 @section('contain')
     <div class="pagetitle">
@@ -22,7 +22,7 @@
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                         @if ($user->image)
-                            <img src="{{ asset('/storage/user/profile-images/' . $user->image) }}" alt="Profile"
+                            <img src="{{ asset('/storage/consultant/profile-images/' . $user->image) }}" alt="Profile"
                                 class="rounded-circle">
                         @else
                             <img src="{{ asset('/') }}assets/frontend/img/default_profile.png" alt="Profile"
@@ -107,7 +107,7 @@
                                             Image</label>
                                         <div class="col-md-8 col-lg-9">
                                             @if ($user->image)
-                                                <img src="{{ asset('/storage/user/profile-images/' . $user->image) }}"
+                                                <img src="{{ asset('/storage/consultant/profile-images/' . $user->image) }}"
                                                     alt="Profile" class="rounded-circle">
                                             @else
                                                 <img src="{{ asset('/') }}assets/frontend/img/default_profile.png"
@@ -117,8 +117,8 @@
                                                 <a href="#" class="btn btn-primary btn-sm"
                                                     title="Upload new profile image"><i class="bi bi-upload"> <input
                                                             type="file" name="image"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"
-                                                    title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                                {{-- <a href="#" class="btn btn-danger btn-sm"
+                                                  title="Remove my profile image"><i class="bi bi-trash"></i></a> --}}
                                             </div>
                                         </div>
                                     </div>

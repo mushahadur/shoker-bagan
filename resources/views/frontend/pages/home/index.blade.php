@@ -16,19 +16,13 @@
             <h2 data-aos="fade-up" data-aos-delay="100">Shoker Bagan.com</h2>
             <p data-aos="fade-up" data-aos-delay="200">Welcome to Our Shoker Bagan.com , This is our inovetive service project for gerdening</p>
           </div>
-          <div class="col-lg-5">
-            <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300">
-              <input type="text" class="form-control" placeholder="Search Your Need">
-              <input type="submit" class="btn btn-primary" value="Search">
-            </form>
-          </div>
         </div>
       </div>
 
     </section><!-- End Hero Section -->
 
         <!-- Portfolio Section - Home Page -->
-        <section id="portfolio" class="portfolio">
+        <section class="portfolio">
 
           <!--  Section Title -->
           <div class="container section-title" >
@@ -160,16 +154,15 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
             <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
+              <div class="icon flex-shrink-0"><i class="bi bi-basket"></i></div>
               <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">User Sevice</a></h4>
-                <p class="description"> If someone goes to his balcony to garden in the roof tub of the house, then he will get various services from there, he can buy everything at his fingertips, also get help from plant advice.</p>
+                <h4 class="title"><a href="{{ route('all.products') }}" class="stretched-link">Pure Product</a></h4>
+                <p class="description">Our city is full of formalized fruits and we can get pure fresh fruits and flowers from here.</p>
               </div>
             </div>
-          </div>
-          <!-- End Service Item -->
+          </div><!-- End Service Item -->
 
           <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="200">
             <div class="service-item d-flex">
@@ -191,15 +184,7 @@
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-basket"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Pure Product</a></h4>
-                <p class="description">Our city is full of formalized fruits and we can get pure fresh fruits and flowers from here.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
+          
 
         </div>
 
@@ -264,7 +249,7 @@
               Navigating the world of plants can be daunting, but fear not – our team of seasoned plant experts is here to guide you every step of the way.
               With their wealth of experience and passion for all things green, you can trust our plant experts to help you find the perfect solution tailored to your specific needs and preferences.
             </p>
-            <a href="#" class="btn btn-get-started">Get Started</a>
+            <a href="{{ route('login') }}" class="btn btn-get-started">Get Started</a>
           </div>
           <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
             <div class="image-stack">
@@ -286,7 +271,7 @@
               <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
               <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
             </ul>
-            <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
+            <a href="{{ route('login') }}" class="btn btn-get-started align-self-start">Get Started</a>
           </div>
         </div><!-- Features Item -->
 

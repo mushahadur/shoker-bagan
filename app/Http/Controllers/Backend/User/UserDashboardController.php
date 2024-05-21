@@ -6,12 +6,20 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class UserDashboardController extends Controller
 {
     
     public function index(){
         return view('backend.user.dashboard');
+        $sessionId = Session::getId();
+        // $check = User::first();
+        // dd($sessionId);
+        // $check = Session::put('student_id', Auth::user()->id);
+        // dd($check);
+        // $check2 = Session::put('student_name', Auth::user()->name);
+        // dd($check2);
     }
     public function profile(){
         $user = Auth::user();
