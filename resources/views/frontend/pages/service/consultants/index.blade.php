@@ -17,12 +17,6 @@
                             <li class="current">Consultants</li>
                         </ol>
                     </div>
-                    <div>
-                        <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300">
-                            <input type="text" class="form-control px-3" placeholder="Search Consultants">
-                            <button class="btn btn-primary mr-2"><i class="bi bi-search"></i></button>
-                        </form>
-                    </div>
                 </div>
             </nav>
         </div><!-- End Page Title -->
@@ -34,10 +28,12 @@
                 <h2>Consultants</h2>
                 <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
             </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="row gy-5">
+        </section>
+        <section class="team">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+              <div class="row">
+                <div class="col-8">
+                  <div class="row gy-4 posts-list">
                     @if ($consultants->isEmpty())
                         <h4 class="text-danger text-center">Consultant Not Found</h4>
                     @else
@@ -49,12 +45,12 @@
                                     <img src="{{ asset('/storage/consultant/profile-images/' . $consultant->image) }}"
                                     class="img-fluid" alt="Profile">
                                     @else
-                                       <img src="{{ asset('/') }}assets/frontend/img/default_profile.png"
-                                       class="img-fluid" alt="Profile">
+                                    <img src="{{ asset('/') }}assets/frontend/img/default_profile.png"
+                                    class="img-fluid" alt="Profile">
                                     @endif
                                     <div class="social">
                                         <a href="{{ $consultant->twitter_link }}" class="twitter"><i
-                                                class="bi bi-twitter"></i></a>
+                                            class="bi bi-twitter"></i></a>
                                         <a href="{{ $consultant->facebook_link }}" class="facebook"><i
                                                 class="bi bi-facebook"></i></a>
                                         <a href="{{ $consultant->instagram_link }}" class="instagram"><i
@@ -63,22 +59,63 @@
                                                 class="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
+                                <a href="{{route('consultant.details',$consultant->id)}}">
                                 <div class="member-info text-center">
                                     <h4>{{ $consultant->name }}</h4>
                                     <span>{{ $consultant->job }}</span>
-                                    <p>{{ $consultant->description }}</p>
                                 </div>
+                            </a>
                             </div><!-- End Team Member -->
                         @endforeach
                     @endif
-
-
-
+  
+                    
+                  </div><!-- End blog posts list -->
+  
                 </div>
-
+                  <div class="col-lg-4 blog-details">
+                    <div class="sidebar">
+                      <div class="sidebar-item search-form">
+                        <h3 class="sidebar-title">Search</h3>
+                        <form action="" class="mt-3">
+                          <input type="text">
+                          <button type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+                      </div><!-- End sidebar search formn-->
+          
+                      <div class="sidebar-item recent-posts">
+                        <h3 class="sidebar-title">Most Popular Consultants</h3>
+          
+                        @if ($consultants->isEmpty())
+                            <h4 class="text-danger text-center">Consultant Not Found</h4>
+                        @else
+                            @foreach ($consultants as $consultant)
+                                <div class="post-item">
+                                    @if ($consultant->image)
+                                        <img src="{{ asset('/storage/consultant/profile-images/' . $consultant->image) }}"
+                                        class="flex-shrink-0" alt="Profile">
+                                        @else
+                                        <img src="{{ asset('/') }}assets/frontend/img/default_profile.png"
+                                        class="flex-shrink-0" alt="Profile">
+                                        @endif
+                                    <div>
+                                    <h4><a href="blog-details.html">{{ $consultant->name }}</a></h4>
+                                    {{-- <time datetime="2020-01-01">Jan 1, 2020</time> --}}
+                                    <time datetime="2020-01-01">{{ $consultant->created_at->format('M j, Y') }}</time>
+                                    </div>
+                                </div><!-- End recent post item-->
+                            @endforeach
+                        @endif
+                        
+          
+                      </div><!-- End sidebar recent posts-->
+          
+                    </div><!-- End Sidebar -->
+          
+                  </div>
+              </div>
             </div>
-
-        </section>
+          </section><!-- End Blog Section -->
 
         <!-- Call-to-action Section - Home Page -->
         <section id="call-to-action" class="call-to-action">

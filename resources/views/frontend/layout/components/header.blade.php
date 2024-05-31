@@ -19,7 +19,7 @@
                      <ul class="dd-box-shadow">
                          <li><a href="{{ route('all.products') }}">Pure Products</a></li>
                          <li><a href="{{ route('all.consultants') }}">Plant Expertis</a></li>
-                         <li><a href="#">Nursery Support</a></li>
+                         <li><a href="{{ route('all.nurseryOwners') }}">Nursery Support</a></li>
                      </ul>
                  </li>
                  <li><a href="{{ route('blog') }}">Blog</a></li>

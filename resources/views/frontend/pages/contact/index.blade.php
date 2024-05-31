@@ -83,7 +83,8 @@ Contact Page
         </div>
 
         <div class="col-lg-6">
-          <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+          <form action="{{route('send.massage')}}" method="post" class="contact-form">
+            @csrf
             <div class="row gy-4">
 
               <div class="col-md-6">
@@ -99,13 +100,15 @@ Contact Page
               </div>
 
               <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
               </div>
 
               <div class="col-md-12 text-center">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div style="color: #11b648;
+                text-align: center;
+                padding: 15px;
+                margin-bottom: 24px;
+                font-weight: 600;">{{Session::get('message')}}</div>
 
                 <button type="submit">Send Message</button>
               </div>

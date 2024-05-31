@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Admin;
 
 use App\Models\User;
+use App\Models\Contact;
 use App\Models\VisitorModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,8 +24,8 @@ class DashboardController extends Controller
     }
     public function profileUpdate(Request $request, $id)
     {
-        $user = User::find($id);
         // dd($request->all());
+        $user = User::find($id);
         if ($request->hasFile('image')) {
             $destinationPath = 'public/admin/profile-images/';
             $image = $request->file('image');
@@ -54,10 +55,12 @@ class DashboardController extends Controller
         $visitors = VisitorModel::orderBy('id', 'DESC')->get();
         return view('backend.admin.pages.visitor.index', ['visitors' => $visitors]);
     }
+
+    // Service Section
     public function productList()
     {
         $products = Product::orderBy('id', 'DESC')->get();
-        return view('backend.admin.pages.product.index', compact('products'));
+        return view('backend.admin.pages.service.product.index', compact('products'));
     }
     public function activeStatus($id)
     {
@@ -79,6 +82,26 @@ class DashboardController extends Controller
     {
         $product = Product::find($id);
 
-        return view('backend.admin.pages.product.details', compact('product'));
+        return view('backend.admin.pages.service.product.details', compact('product'));
+    }
+
+
+    public function consultantList(){
+        $consultants = User::where('role','=','3')->orderBy('id', 'DESC')->get();
+        return view('backend.admin.pages.service.consultants.index', compact('consultants'));
+    }
+    public function nurseryList(){
+        $nurseryOwners = User::where('role','=','2')->orderBy('id', 'DESC')->get();
+        return view('backend.admin.pages.service.nursery-owners.index', compact('nurseryOwners'));
+    }
+
+
+
+
+
+    public function contactList()
+    {
+        $contacts = Contact::orderBy('id', 'DESC')->get();
+        return view('backend.admin.pages.contact.index', compact('contacts'));
     }
 }

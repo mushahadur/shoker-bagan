@@ -65,9 +65,10 @@ class ProdictController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Product $product)
     {
-        //
+        // dd($product);
+        return view('backend.nursery-owner.pages.product.edit',compact('product'));
     }
 
     /**
@@ -75,14 +76,32 @@ class ProdictController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        // dd($product);
+        
+        if ($request->hasFile('image')) {
+            $destinationPath= 'public/product-images/';
+            $image      = $request->file('image');
+            $fileName   = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs($destinationPath,$fileName);
+            $product->image = $fileName;
+        }
+
+        $product->name    = $request->name;
+        $product->category   = $request->category;
+        $product->price = $request->price;
+        $product->stock = $request->stock;
+        $product->description = $request->description;
+        $product->update();
+        return redirect(route('product.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect(route('product.index'));
     }
 }

@@ -99,7 +99,7 @@
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                 <!-- Profile Edit Form -->
-                                <form action="{{ route('update.profile', ['id' => $user->id]) }}" method="POST"
+                                <form action="{{ route('update.nurseryProfile', ['id' => $user->id]) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row mb-3">
@@ -117,8 +117,7 @@
                                                 <a href="#" class="btn btn-primary btn-sm"
                                                     title="Upload new profile image"><i class="bi bi-upload"> <input
                                                             type="file" name="image"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"
-                                                    title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                               
                                             </div>
                                         </div>
                                     </div>

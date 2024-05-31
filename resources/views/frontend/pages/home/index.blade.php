@@ -204,7 +204,7 @@
           <div class="product_container">
             @foreach ($products as $product)
             @if($product->status == "active")
-              <a href="">
+              <a href="{{route('user.orderList')}}">
                 <div class="product_box">
                   <div class="product_img-box">
                     <img src="{{asset('/storage/product-images/'.$product->image)}}" alt="" style="height: 220px">
@@ -249,6 +249,11 @@
               Navigating the world of plants can be daunting, but fear not – our team of seasoned plant experts is here to guide you every step of the way.
               With their wealth of experience and passion for all things green, you can trust our plant experts to help you find the perfect solution tailored to your specific needs and preferences.
             </p>
+            <ul>
+              <li><i class="bi bi-check"></i> <span>Available in the Morning time.</span></li>
+              <li><i class="bi bi-check"></i><span> Available in the Evening time.</span></li>
+              <li><i class="bi bi-check"></i> <span>Available in the Night time</span>.</li>
+            </ul>
             <a href="{{ route('login') }}" class="btn btn-get-started">Get Started</a>
           </div>
           <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
@@ -261,15 +266,17 @@
 
         <div class="row gy-4 align-items-stretch justify-content-between features-item ">
           <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
-            <img src="{{ asset('/') }}assets/frontend/img/features-light-3.jpg" class="img-fluid" alt="">
+            <img src="{{ asset('/') }}assets/frontend/img/n1.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
-            <h3>Sunt consequatur ad ut est nulla</h3>
-            <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+            <h3>Services Offered by Nursery Owners on "Shoker Bagan"</h3>
+            <p>Nursery owners play a crucial role in the "Shoker Bagan" ecosystem, offering a wide range of services that cater to the needs of gardening enthusiasts and professional horticulturists alike. The platform is designed to empower nursery owners by providing them with tools and opportunities to expand their businesses and reach a broader audience. Below are the key services that nursery owners can offer through "Shoker Bagan": </p>
             <ul>
-              <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
+              <li><i class="bi bi-check"></i> <span>Manpower Provision.</span></li>
+              <li><i class="bi bi-check"></i><span> Instrument Support.</span></li>
+              <li><i class="bi bi-check"></i> <span>Sale of Trees, Seeds, Flowers, and Fruit</span>.</li>
+              <li><i class="bi bi-check"></i> <span>Soil and Fertilizer Supply</span>.</li>
+              <li><i class="bi bi-check"></i> <span>Instrument Sales and Rentals</span>.</li>
             </ul>
             <a href="{{ route('login') }}" class="btn btn-get-started align-self-start">Get Started</a>
           </div>
