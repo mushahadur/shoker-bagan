@@ -19,9 +19,14 @@
 
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-
+                        @if ($user->image)
                         <img src="{{ asset('/storage/admin/profile-images/' . $user->image) }}" alt="Profile"
                             class="rounded-circle">
+                    @else
+                        <img src="{{ asset('/') }}assets/frontend/img/default_profile.png" alt="Profile"
+                            class="rounded-circle">
+                    @endif
+                        
                         <h2>{{ $user->name }}</h2>
                         <h3>{{ $user->job }}</h3>
                         <div class="social-links mt-2">
@@ -93,23 +98,27 @@
                             <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
 
                                 <!-- Profile Edit Form -->
-                                <form action="{{ route('update.profile', ['id' => $user->id]) }}" method="POST"
+                                <form action="{{ route('update.adminProfile', ['id' => $user->id]) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row mb-3">
                                         <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile
                                             Image</label>
-                                        <div class="col-md-8 col-lg-9">
-                                            <img src="{{ asset('/storage/admin/profile-images/' . $user->image) }}"
-                                                alt="Profile">
-                                            <div class="pt-2">
-                                                <a href="#" class="btn btn-primary btn-sm"
-                                                    title="Upload new profile image"><i class="bi bi-upload"> <input
-                                                            type="file" name="image"></i></a>
-                                                <a href="#" class="btn btn-danger btn-sm"
-                                                    title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                                            <div class="col-md-8 col-lg-9">
+                                                @if ($user->image)
+                                                    <img src="{{ asset('/storage/admin/profile-images/' . $user->image) }}"
+                                                        alt="Profile" class="rounded-circle">
+                                                @else
+                                                    <img src="{{ asset('/') }}assets/frontend/img/default_profile.png"
+                                                        alt="Profile" class="rounded-circle">
+                                                @endif
+                                                <div class="pt-2">
+                                                    <a href="#" class="btn btn-primary btn-sm"
+                                                        title="Upload new profile image"><i class="bi bi-upload"> <input
+                                                                type="file" name="image"></i></a>
+                                                   
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
 
                                     <div class="row mb-3">

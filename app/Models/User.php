@@ -30,6 +30,7 @@ class User extends Authenticatable
         'facebook_link',
         'instagram_link',
         'linkedin_link',
+        'service',
     ];
 
     /**

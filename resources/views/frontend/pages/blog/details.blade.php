@@ -38,8 +38,8 @@
 
           <article class="article">
 
-            <div class="post-img">
-              <img src="{{ asset('/') }}assets/frontend/img/blog/d3.jpg" alt="" class="img-fluid">
+            <div class="post-img" >
+              <img src="{{ asset('/') }}assets/frontend/img/blog/d.jpg" alt="" class="img-fluid" style="height: 400px; width:100%">
             </div>
 
             <h2 class="title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h2>
@@ -72,23 +72,6 @@
                 Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
                 Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum. Omnis dolorum exercitationem harum qui qui blanditiis neque.
                 Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel magnam quod et tempora deleniti error rerum nihil tempora.
-              </p>
-
-              <h3>Et quae iure vel ut odit alias.</h3>
-              <p>
-                Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
-                Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
-                Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
-              </p>
-              <img src="{{ asset('/') }}assets/frontend/img/blog/d2.jpg" class="img-fluid" alt="">
-
-              <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
-              <p>
-                Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
-                Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
-              </p>
-              <p>
-                Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
               </p>
 
             </div><!-- End post content -->
@@ -268,12 +251,9 @@
             <div class="sidebar-item categories">
               <h3 class="sidebar-title">Categories</h3>
               <ul class="mt-3">
-                <li><a href="#">General <span>(25)</span></a></li>
-                <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                <li><a href="#">Travel <span>(5)</span></a></li>
-                <li><a href="#">Design <span>(22)</span></a></li>
-                <li><a href="#">Creative <span>(8)</span></a></li>
-                <li><a href="#">Educaion <span>(14)</span></a></li>
+                <li><a href="#">Fruits <span>(25)</span></a></li>
+                <li><a href="#">Flowers <span>(12)</span></a></li>
+                <li><a href="#">Instrument <span>(5)</span></a></li>
               </ul>
             </div><!-- End sidebar categories-->
 
@@ -321,23 +301,6 @@
               </div><!-- End recent post item-->
 
             </div><!-- End sidebar recent posts-->
-
-            <div class="sidebar-item tags">
-              <h3 class="sidebar-title">Tags</h3>
-              <ul class="mt-3">
-                <li><a href="#">App</a></li>
-                <li><a href="#">IT</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Mac</a></li>
-                <li><a href="#">Design</a></li>
-                <li><a href="#">Office</a></li>
-                <li><a href="#">Creative</a></li>
-                <li><a href="#">Studio</a></li>
-                <li><a href="#">Smart</a></li>
-                <li><a href="#">Tips</a></li>
-                <li><a href="#">Marketing</a></li>
-              </ul>
-            </div><!-- End sidebar tags-->
 
           </div><!-- End Sidebar -->
 

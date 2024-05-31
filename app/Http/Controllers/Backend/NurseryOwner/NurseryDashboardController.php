@@ -43,6 +43,6 @@ class NurseryDashboardController extends Controller
         return redirect(route('nursery_owner.profile'))->with('message', 'Active Status update to Inactive successfully.');
     }
     public function faq(){
-        return view('backend.user.pages.faq.index');
+        return view('backend.nursery-owner.pages.faq.index');
     }
 }

@@ -53,17 +53,16 @@
                     <td>{{$product->stock}}</td>
                     <td>{{$product->category}}</td>
                     <td><img src="{{asset('/storage/product-images/'.$product->image)}}" alt="{{$product->image}}" height="50" width="60"/></td>
-                    <td>
-                        <a href="#" class="btn btn-outline-success" title="Product Details">
-                            <i class="bi bi-info-circle"></i>
-                        </a>
+                    <td class="d-flex justify-content-start">
                      
-                        <a href="#" class="btn btn-outline-primary" title="Product Edit">
+                        <a href="{{ route('product.edit', $product) }}" class="btn btn-outline-primary mr-1" title="Product Edit">
                             <i class="ri-edit-box-line"></i>
                         </a>
-                        <a href="#" class="btn btn-outline-danger" title="Product Delete">
-                            <i class="bi bi-trash-fill"></i>
-                        </a>
+                        <form id="delete-form" action="{{ route('product.destroy', $product) }}" method="POST" >
+                          @csrf
+                          @method('DELETE')
+                             <button class="btn btn-outline-danger" type="submit"><i class="bi bi-trash-fill"></i></button>
+                      </form>
                     </td>
                      </tr>
                 @endforeach
