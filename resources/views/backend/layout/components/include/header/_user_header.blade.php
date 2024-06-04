@@ -190,6 +190,12 @@
             <li>
               <hr class="dropdown-divider">
             </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{{url('/')}}">
+                <i class="ri-home-8-line"></i>
+                <span>Home Page</span>
+              </a>
+            </li>
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="{{route('user.faq')}}">

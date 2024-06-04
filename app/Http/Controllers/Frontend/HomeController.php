@@ -62,8 +62,7 @@ class HomeController extends Controller
         return view('frontend.pages.service.products.index', compact('products'));
     }
     public function productDetails($id){
-        // dd($id);
-        $product = Product::findOrFail($id);
+        $product = Product::with('user')->findOrFail($id);
         return view('frontend.pages.service.products.details', compact('product'));
     }
     

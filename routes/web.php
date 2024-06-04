@@ -66,6 +66,8 @@ Route::group(['prefix' => 'user','middleware' => ['auth','verified', 'user']], f
     //For Consultant
     Route::get('/contact-consultant', [UserDashboardController::class, 'contactConsultants'])->name('user.contactConsultants');
     Route::get('/contact-consultant-history', [UserDashboardController::class, 'contactConsultantsHistory'])->name('user.contactConsultantsHistory');
+    // Order 
+    Route::get('/confirm-order/{user_id}/{product_id}', [UserOrderController::class, 'confirmOrder'])->name('confirmOrder');
     
     //For Order Controller
     Route::get('/order-list', [UserOrderController::class, 'index'])->name('user.orderList');
@@ -80,6 +82,8 @@ Route::group(['prefix' => 'nursery-owner','middleware' => ['auth','verified', 'n
     Route::resource('/product', ProdictController::class);
 
     Route::get('/faq', [NurseryDashboardController::class, 'faq'])->name('nursery_owner.faq');
+    // Order Route
+    Route::get('/order-list', [NurseryDashboardController::class, 'orderList'])->name('listOrder');
 });
 
 
@@ -90,7 +94,9 @@ Route::group(['prefix' => 'consultant','middleware' => ['auth','verified', 'cons
     //For Profile
     Route::get('/profile', [ConController::class, 'profile'])->name('consultant.profile');
     Route::post('/update-profile/{id}', [ConController::class, 'profileUpdate'])->name('update.profile');
-
+    // Order 
+    Route::get('/confirm-order/{user_id}/{product_id}', [ConOrderController::class, 'confirmOrder'])->name('confirmOrder.consultant');
+    
     //For Order Controller
     Route::get('/order-list', [ConOrderController::class, 'index'])->name('consultant.orderList');
     Route::get('/order-history', [ConOrderController::class, 'orderHistory'])->name('consultant.orderHistory');

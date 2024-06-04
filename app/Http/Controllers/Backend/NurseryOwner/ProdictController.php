@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Backend\NurseryOwner;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\NurseryOwner\ProductRequest;
+use App\Http\Controllers\Controller;
 use App\Models\NurseryOwner\Product;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\NurseryOwner\ProductRequest;
 
 class ProdictController extends Controller
 {
@@ -14,7 +15,8 @@ class ProdictController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id', 'DESC')->get();
+        $userId = Auth::id();
+        $products = Product::where('user_id', $userId)->orderBy('id', 'DESC')->get();
         return view('backend.nursery-owner.pages.product.index', compact('products'));
     }
 
@@ -31,6 +33,7 @@ class ProdictController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        // dd($request->all());
         $product = new Product();
         if ($request->hasFile('image')) {
             $destinationPath= 'public/product-images/';
@@ -40,11 +43,12 @@ class ProdictController extends Controller
             $product->image = $fileName;
         }
 
-        $product->name    = $request->name;
-        $product->category   = $request->category;
-        $product->price = $request->price;
-        $product->stock = $request->stock;
-        $product->description = $request->description;
+        $product->user_id       = $request->user_id;
+        $product->name          = $request->name;
+        $product->category      = $request->category;
+        $product->price         = $request->price;
+        $product->stock         = $request->stock;
+        $product->description   = $request->description;
         $save = $product->save();
         if($save){
             return redirect(route('product.index'));

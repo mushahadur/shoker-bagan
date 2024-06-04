@@ -24,9 +24,14 @@
                         <div class="d-flex justify-content-between">
                             <h5 class="card-title">Service List</h5>
                             <div class="py-3">
-                            <a  href="{{route('service.create')}}" class="btn btn-primary" title="Add User">
-                             <i class="ri-add-fill"></i>Add Service
-                            </a>
+                                @if ($check)
+                                    
+                                @else
+                                    
+                                <a  href="{{route('service.create')}}" class="btn btn-primary" title="Add User">
+                                 <i class="ri-add-fill"></i>Add Service
+                                </a>
+                                @endif
                             </div>
                           </div>
 
@@ -60,6 +65,15 @@
                                             <th scope="col" data-sortable="true" >
                                                 <button class="datatable-sorter">Services</button>
                                             </th>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Morning</button>
+                                            </th>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Evening</button>
+                                            </th>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Night</button>
+                                            </th>
                                             <th scope="col" data-sortable="true">
                                                 <button class="datatable-sorter">Certificate</button>
                                             </th>
@@ -73,8 +87,11 @@
                                         <tr>
                                           <td>{{$loop->iteration}}</td>
                                           <td>{{$item->title}}</td>
-                                          <td>{{$item->service}}</td>
-                                          <td><img src="{{ asset('/storage/consultant/certificates/' . $item->image) }}"
+                                          <td>{!! nl2br(e($item->service)) !!}</td>
+                                          <td>{{$item->morning_time}}</td>
+                                          <td>{{$item->evening_time}}</td>
+                                          <td>{{$item->night_time}}</td>
+                                          <td><img src="{{asset('/storage/consultant/certificates/'.$item->certificate)}}"
                                             alt="" height="50" width="60"></td>
                                             <td class="d-flex justify-content-start">
                      
@@ -83,7 +100,6 @@
                                                 </a>
                                             </td>
                                       @endforeach
-                                       
                                     </tbody>
                                 </table>
                             </div>

@@ -2,15 +2,38 @@
 
 namespace App\Http\Controllers\Backend\Consultant;
 
-use App\Http\Controllers\Controller;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\NurseryOwner\Product;
+use Illuminate\Support\Facades\Auth;
 
 class ConOrderController extends Controller
 {
     public function index(){
-        return view('backend.user.pages.order.index');
+        $userId = Auth::user()->id;
+        $orders = Order::with('user', 'product')->where('user_id', $userId)->orderBy('id', 'DESC')->get();
+        
+        return view('backend.consultant.pages.order.index',compact('orders'));
     }
     public function orderHistory(){
-        return view('backend.user.pages.order.history');
+        return view('backend.consultant.pages.order.history');
+    }
+
+    public function confirmOrder($user_id, $product_id){
+        $product = Product::findOrFail($product_id);
+        $order = new Order();
+        $order->user_id   = $user_id;
+        $order->product_id = $product_id;
+        $order->name     = $product->name;
+        $order->category = $product->category;
+        $order->price    = $product->price;
+        $check = $order->save();
+        if($check){
+            return redirect(route('consultant.orderList'));
+        }
+        else{
+            return "Order Not Confirm ! Please try again..";
+        }
     }
 }

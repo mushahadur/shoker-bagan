@@ -43,36 +43,33 @@
                                 <table class="table table-borderless datatable datatable-table">
                                     <thead>
                                         <tr>
-                                            <th scope="col" data-sortable="true" style="width: 10.655737704918032%;">
-                                                <button class="datatable-sorter">#</button>
+                                            <th>#</th>
+                                            <th>
+                                                <b>N</b>ame
                                             </th>
-                                            <th scope="col" data-sortable="true" style="width: 23.442622950819672%;">
-                                                <button class="datatable-sorter">Title</button>
-                                            </th>
-                                            <th scope="col" data-sortable="true" style="width: 39.34426229508197%;">
-                                                <button class="datatable-sorter">Product</button>
-                                            </th>
-                                            <th scope="col" data-sortable="true" style="width: 11.80327868852459%;">
-                                                <button class="datatable-sorter">Image</button>
-                                            </th>
-                                            <th scope="col" data-sortable="true" style="width: 11.80327868852459%;">
-                                                <button class="datatable-sorter">Price</button>
-                                            </th>
-                                            <th scope="col" data-sortable="true" class="red"
-                                                style="width: 14.754098360655737%;"><button
-                                                    class="datatable-sorter">Status</button></th>
+                                            <th>Categor</th>
+                                            <th>Nursery</th>
+                                            <th>Contact</th>
+                                            <th>Price</th>
+                                            <th>Image</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr data-index="0">
-                                            <td scope="row"><a href="#">#2457</a></td>
-                                            <td>Brandon Jacob</td>
-                                            <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                            <td><img src="{{ asset('/storage/user/profile-images/' .Auth::user()->image) }}" alt="" height="50" width="60"></td>
-                                            <td>$64</td>
-                                            <td class="green"><span class="badge bg-success">Approved</span></td>
-                                        </tr>
-                                       
+                                        @foreach ($orders as $order)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $order->name }}</td>
+                                                <td>{{ $order->category }}</td>
+                                                <td>{{ $order->user->name }}</td>
+                                                <td>{{ $order->user->phone }}</td>
+                                                <td>$ {{ $order->price }}</td>
+                                                <td><img src="{{asset('/storage/product-images/'.$order->product->image)}}" alt="{{$order->product->image}}" height="50" width="60"/></td>
+                                                <td class="green"><span
+                                                        class="badge bg-warning">{{ $order->status }}</span></td>
+                                            </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

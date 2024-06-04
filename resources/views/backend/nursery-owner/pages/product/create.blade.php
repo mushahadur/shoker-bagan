@@ -23,6 +23,7 @@
                     <div class="col-12">
                     <form action="{{route('product.store')}}" method="POST"  enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden"  name="user_id" value="{{Auth::user()->id}}">
                         <div class="row pb-3">
                             <div class="col-2"> Category Select </div>
                             

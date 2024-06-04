@@ -37,6 +37,7 @@ Consultants Details
                   <a href="#" class="active"><i class="bi bi-arrow-right-circle"></i><span>Live Communications</span></a>
                   <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Dream Support</span></a>
                   <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Tree Treatment</span></a>
+                  <a href="{{ route('login') }}" style="background-color:rgb(48, 134, 70)" class="btn btn-get-started active"><i class="bi bi-check"></i>Confirm Appointment</a>
                 </div>
               </div><!-- End Services List -->
   
@@ -62,8 +63,8 @@ Consultants Details
   
           </div>
   
+          
         </div>
-  
       </section><!-- End Service-details Section -->
     
     </main>

@@ -26,7 +26,7 @@
             <!--  Section Title -->
             <div class="container section-title aos-init aos-animate" data-aos="fade-up">
                 <h2>Nursery Owner</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>Nursery owners can sell their seedlings They can sell their nearby fruits and flowers They can sell their gardening tools and get help from plant consultants</p>
             </div><!-- End Section Title -->
         </section>
         <section class="team">

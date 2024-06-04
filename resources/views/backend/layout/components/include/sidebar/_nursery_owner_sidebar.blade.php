@@ -32,7 +32,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
+            <a href="{{route('listOrder')}}">
               <i class="bi bi-circle"></i><span>Order List</span>
             </a>
           </li>
