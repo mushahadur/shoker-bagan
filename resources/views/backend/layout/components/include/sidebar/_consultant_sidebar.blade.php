@@ -45,21 +45,9 @@
       </li><!-- End Consultants Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="ri-customer-service-2-line"></i><span>Services</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="{{route('service.index')}}">
+          <i class="ri-customer-service-2-line"></i><span>Services</span>
         </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="{{route('service.index')}}">
-              <i class="bi bi-circle"></i><span>Service List</span>
-            </a>
-          </li>
-          <li>
-            <a href="{{route('service.create')}}">
-              <i class="bi bi-circle"></i><span>Add Service</span>
-            </a>
-          </li>
-        </ul>
       </li><!-- End Icons Nav -->
       <li class="nav-heading">Pages</li>
 

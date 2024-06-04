@@ -45,4 +45,7 @@ class NurseryDashboardController extends Controller
     public function faq(){
         return view('backend.nursery-owner.pages.faq.index');
     }
+    public function orderList(){
+        return view('backend.nursery-owner.pages.order-list.index');
+    }
 }

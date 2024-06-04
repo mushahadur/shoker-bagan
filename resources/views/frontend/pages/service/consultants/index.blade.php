@@ -26,7 +26,7 @@
             <!--  Section Title -->
             <div class="container section-title aos-init aos-animate" data-aos="fade-up">
                 <h2>Consultants</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>Here experienced plant consultants can help garden owners and nursery owners with various advice on plants and earn extra income.</p>
             </div><!-- End Section Title -->
         </section>
         <section class="team">

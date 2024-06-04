@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\Consultant;
 use App\Models\Consultant;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -13,8 +14,12 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $serviceList = Consultant::orderBy('id', 'DESC')->get();
-        return view('backend.consultant.pages.service.index', compact('serviceList'));
+        $userId = Auth::user()->id;
+        $check = Consultant::where('user_id', $userId)->first();
+        // dd( $check);
+        $serviceList = Consultant::where('user_id', $userId)->orderBy('id', 'DESC')->get();
+        // dd( $serviceList);
+        return view('backend.consultant.pages.service.index', compact('serviceList', 'check'));
     }
 
     /**

@@ -168,7 +168,7 @@
             <div class="service-item d-flex">
               <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
               <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Nursery Owners</a></h4>
+                <h4 class="title"><a href="{{ route('all.nurseryOwners') }}" class="stretched-link">Nursery Owners</a></h4>
                 <p class="description">Nursery owners can sell their seedlings They can sell their nearby fruits and flowers They can sell their gardening tools and get help from plant consultants</p>
               </div>
             </div>
@@ -178,7 +178,7 @@
             <div class="service-item d-flex">
               <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
               <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Plant Expertis</a></h4>
+                <h4 class="title"><a href="{{ route('all.consultants') }}" class="stretched-link">Plant Expertis</a></h4>
                 <p class="description">Here experienced plant consultants can help garden owners and nursery owners with various advice on plants and earn extra income.</p>
               </div>
             </div>
@@ -204,7 +204,7 @@
           <div class="product_container">
             @foreach ($products as $product)
             @if($product->status == "active")
-              <a href="{{route('user.orderList')}}">
+              <a href="{{route('home.product.details',$product->id)}}">
                 <div class="product_box">
                   <div class="product_img-box">
                     <img src="{{asset('/storage/product-images/'.$product->image)}}" alt="" style="height: 220px">
