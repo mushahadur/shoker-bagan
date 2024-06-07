@@ -32,7 +32,7 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="#">
+            <a href="{{route('consultant.contact')}}">
               <i class="bi bi-circle"></i><span>Contact</span>
             </a>
           </li>

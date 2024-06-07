@@ -1,15 +1,15 @@
 @extends('backend.layout.app')
 @section('title')
-    Consultant Order List
+    Contact List
 @endsection
 @section('contain')
     <div class="pagetitle">
-        <h1>Consultant Order List</h1>
+        <h1>Contact List</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item">Pages</li>
-                <li class="breadcrumb-item active">Order List</li>
+                <li class="breadcrumb-item active">Contact List</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -20,7 +20,7 @@
                 <div class="card recent-sales overflow-auto">
 
                     <div class="card-body">
-                        <h5 class="card-title">Order List <span>| Today</span></h5>
+                        <h5 class="card-title">Service Recipient List <span>| Today</span></h5>
 
                         <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
                             <div class="datatable-top">
@@ -40,8 +40,8 @@
                                 </div>
                             </div>
                             <div class="datatable-container">
-                                @if ($orders->isEmpty())
-                                    <p>No orders found.</p>
+                                @if ($appointments->isEmpty())
+                                    <p>No appointments found.</p>
                                 @else
                                     <table class="table table-borderless datatable datatable-table">
                                         <thead>
@@ -50,35 +50,31 @@
                                                     <button class="datatable-sorter">Si No</button>
                                                 </th>
                                                 <th scope="col" data-sortable="true">
-                                                    <button class="datatable-sorter">Nursery Name</button>
+                                                    <button class="datatable-sorter">User Name</button>
                                                 </th>
                                                 <th scope="col" data-sortable="true">
-                                                    <button class="datatable-sorter">Nursery Phone</button>
+                                                    <button class="datatable-sorter">User Phone</button>
                                                 </th>
                                                 <th scope="col" data-sortable="true">
-                                                    <button class="datatable-sorter">Product Name</button>
+                                                    <button class="datatable-sorter">User Email</button>
                                                 </th>
                                                 <th scope="col" data-sortable="true">
-                                                    <button class="datatable-sorter">Product Price</button>
+                                                    <button class="datatable-sorter">User Image</button>
                                                 </th>
-                                                <th scope="col" data-sortable="true">
-                                                    <button class="datatable-sorter">Product Image</button>
-                                                </th>
-                                                <th scope="col" data-sortable="true">
+                                                <th scope="col" data-sortable="true" class="red">
                                                     <button class="datatable-sorter">Status</button>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $item)
+                                            @foreach ($appointments as $item)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->nursery_name }}</td>
-                                                    <td>{{ $item->nursery_phone }}</td>
-                                                    <td>{{ $item->product_name }}</td>
-                                                    <td>{{ $item->product_price }}</td>
+                                                    <td>{{ $item->user_name }}</td>
+                                                    <td>{{ $item->user_phone }}</td>
+                                                    <td>{{ $item->user_email }}</td>
                                                     <td>
-                                                        <img src="{{ asset('/storage/product-images/'. $item->product_image) }}"
+                                                        <img src="{{ asset('/storage/user/profile-images/' . $item->user_image) }}"
                                                             alt="" height="50" width="60">
                                                     </td>
                                                     <td class="green">

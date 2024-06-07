@@ -62,12 +62,15 @@ Route::group(['prefix' => 'user','middleware' => ['auth','verified', 'user']], f
     Route::get('/faq', [UserDashboardController::class, 'faq'])->name('user.faq');
     //For Profile
     Route::get('/profile', [UserDashboardController::class, 'profile'])->name('user.profile');
-    Route::post('/update-profile/{id}', [UserDashboardController::class, 'profileUpdate'])->name('update.profile');
+    Route::post('/update-profile/{id}', [UserDashboardController::class, 'profileUpdate'])->name('update.userProfile');
     //For Consultant
     Route::get('/contact-consultant', [UserDashboardController::class, 'contactConsultants'])->name('user.contactConsultants');
     Route::get('/contact-consultant-history', [UserDashboardController::class, 'contactConsultantsHistory'])->name('user.contactConsultantsHistory');
     // Order 
-    Route::get('/confirm-order/{user_id}/{product_id}', [UserOrderController::class, 'confirmOrder'])->name('confirmOrder');
+    Route::get('/confirm-order/{nursery_id}/{product_id}', [UserOrderController::class, 'confirmOrder'])->name('confirmOrder');
+    
+    // Appointment 
+    Route::get('/confirm-appointment/{user_id}/{consultant_id}', [UserOrderController::class, 'confirmAppointment'])->name('user.confirmAppointment');
     
     //For Order Controller
     Route::get('/order-list', [UserOrderController::class, 'index'])->name('user.orderList');
@@ -95,7 +98,7 @@ Route::group(['prefix' => 'consultant','middleware' => ['auth','verified', 'cons
     Route::get('/profile', [ConController::class, 'profile'])->name('consultant.profile');
     Route::post('/update-profile/{id}', [ConController::class, 'profileUpdate'])->name('update.profile');
     // Order 
-    Route::get('/confirm-order/{user_id}/{product_id}', [ConOrderController::class, 'confirmOrder'])->name('confirmOrder.consultant');
+    Route::get('/confirm-order/{nursery_id}/{product_id}', [ConOrderController::class, 'confirmOrder'])->name('confirmOrder.consultant');
     
     //For Order Controller
     Route::get('/order-list', [ConOrderController::class, 'index'])->name('consultant.orderList');
@@ -103,6 +106,9 @@ Route::group(['prefix' => 'consultant','middleware' => ['auth','verified', 'cons
 
     // For Service Controller
     Route::resource('/service', ServiceController::class);
+
+    //Service-Recipients
+    Route::get('/consultant-contact', [ConController::class, 'consultantContact'])->name('consultant.contact');
 
 });
 

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Appointment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Consultant extends Model
 {
@@ -17,4 +18,8 @@ class Consultant extends Model
         'night_time',
         'certificate',
     ];
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'consultant_id');
+    }
 }

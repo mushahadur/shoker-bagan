@@ -98,9 +98,9 @@
                                 <ul class="mt-3">
                                   @if (Auth::user())
                                     @if (Auth::user()->role == 3)
-                                        <a href="{{ route('confirmOrder.consultant', ['user_id' => Auth::user()->id, 'product_id' => $product->id]) }}">Confirm Order</a>
+                                        <a href="{{ route('confirmOrder.consultant', ['nursery_id' => $product->user->id, 'product_id' => $product->id]) }}">Confirm Order</a>
                                     @else
-                                        <a href="{{ route('confirmOrder', ['user_id' => Auth::user()->id, 'product_id' => $product->id]) }}">Confirm Order</a>
+                                        <a href="{{ route('confirmOrder', ['nursery_id' => $product->user->id, 'product_id' => $product->id]) }}">Confirm Order</a>
                                     @endif
                                   @else
                                     <li><a href="{{route('login')}}">Confirm Order</a></li>
