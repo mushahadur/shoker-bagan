@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Contact;
 use App\Models\VisitorModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\NurseryOwner\Product;
 use Illuminate\Support\Facades\Auth;
@@ -71,8 +72,14 @@ class HomeController extends Controller
         return view('frontend.pages.service.consultants.index', compact('consultants'));
     }
     public function consultantDetails($id){
-        $consultant = User::findOrFail($id);
-        return view('frontend.pages.service.consultants.details', compact('consultant'));
+        $consultant = DB::table('users')->where('id', $id)->first();
+        $data = DB::table('consultants')->where('user_id', $id)->first();
+        if($data){
+            return view('frontend.pages.service.consultants.details', compact('consultant', 'data'));
+        }else{
+            return redirect(route('all.consultants'));
+        }
+       
     }
 
 

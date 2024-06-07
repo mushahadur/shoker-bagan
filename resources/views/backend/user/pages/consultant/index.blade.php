@@ -43,37 +43,48 @@
                                 <table class="table table-borderless datatable datatable-table">
                                     <thead>
                                         <tr>
-                                            <th scope="col" data-sortable="true" style="width: 10.655737704918032%;">
-                                                <button class="datatable-sorter">#</button>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Si No</button>
                                             </th>
-                                            <th scope="col" data-sortable="true" style="width: 23.442622950819672%;">
-                                                <button class="datatable-sorter">Title</button>
+                                            <th scope="col" data-sortable="true">
+                                                <button class="datatable-sorter">Name</button>
                                             </th>
-                                            <th scope="col" data-sortable="true" style="width: 39.34426229508197%;">
-                                                <button class="datatable-sorter">Product</button>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Services</button>
                                             </th>
-                                            <th scope="col" data-sortable="true" style="width: 11.80327868852459%;">
-                                                <button class="datatable-sorter">Image</button>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Morning</button>
                                             </th>
-                                            <th scope="col" data-sortable="true" style="width: 11.80327868852459%;">
-                                                <button class="datatable-sorter">Price</button>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Evening</button>
+                                            </th>
+                                            <th scope="col" data-sortable="true" >
+                                                <button class="datatable-sorter">Night</button>
+                                            </th>
+                                            <th scope="col" data-sortable="true">
+                                                <button class="datatable-sorter">Certificate</button>
                                             </th>
                                             <th scope="col" data-sortable="true" class="red"
-                                                style="width: 14.754098360655737%;"><button
+                                               ><button
                                                     class="datatable-sorter">Status</button></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr data-index="0">
-                                            <td scope="row"><a href="#">#2457</a></td>
-                                            <td>Brandon Jacob</td>
-                                            <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                                            <td><img src="{{ asset('/storage/user/profile-images/' . Auth::user()->image) }}"
-                                                    alt="" height="50" width="60"></td>
-                                            <td>$64</td>
-                                            <td class="green"><span class="badge bg-info">Shifted</span></td>
-                                        </tr>
-
+                                        @foreach ($appointments as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->consultant_name }}</td>
+                                            <td>{!! nl2br(e($item->consultant_service)) !!}</td>
+                                            <td>{{ $item->consultant_morning_time }}</td>
+                                            <td>{{ $item->consultant_evening_time }}</td>
+                                            <td>{{ $item->consultant_night_time }}</td>
+                                            <td>
+                                                <img src="{{ asset('/storage/consultant/certificates/'.$item->consultant_certificate) }}" alt="" height="50" width="60">
+                                            </td>
+                                            <td class="green">
+                                                <span class="badge bg-warning">{{ $item->status }}</span>
+                                            </td>
+                                      @endforeach
                                     </tbody>
                                 </table>
                             </div>

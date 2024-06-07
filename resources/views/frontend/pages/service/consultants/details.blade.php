@@ -34,12 +34,15 @@ Consultants Details
               <div class="service-box">
                 <h4>Service List</h4>
                 <div class="services-list">
-                  <a href="#" class="active"><i class="bi bi-arrow-right-circle"></i><span>Live Communications</span></a>
-                  <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Dream Support</span></a>
-                  <a href="#"><i class="bi bi-arrow-right-circle"></i><span>Tree Treatment</span></a>
+                  <a href="#" class="active"><i class="bi bi-arrow-right-circle"></i><span>{!! nl2br(e($data->service)) !!}</span></a>
+                  @if (Auth::user())
+                  <a href="{{ route('user.confirmAppointment', ['user_id' => Auth::user()->id, 'consultant_id' => $consultant->id]) }}" style="background-color:rgb(48, 134, 70)" class="btn btn-get-started active"><i class="bi bi-check"></i>Confirm Appointment</a>
+                  @else
                   <a href="{{ route('login') }}" style="background-color:rgb(48, 134, 70)" class="btn btn-get-started active"><i class="bi bi-check"></i>Confirm Appointment</a>
+                  @endif
                 </div>
               </div><!-- End Services List -->
+             
   
               <div class="help-box d-flex flex-column justify-content-center align-items-center">
                 <i class="bi bi-headset help-icon"></i>
@@ -55,9 +58,9 @@ Consultants Details
               <h3>{{ $consultant->name }}</h3>
               <p>{{ $consultant->description }}</p>
               <ul>
-                <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt voluptatibus.</span></li>
-                <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Morning  : {{ $data->morning_time }}</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Evening : {{ $data->evening_time }}</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Night : {{ $data->night_time }}</span></li>
               </ul>
             </div>
   

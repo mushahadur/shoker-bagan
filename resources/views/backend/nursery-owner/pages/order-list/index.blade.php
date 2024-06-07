@@ -47,9 +47,9 @@
                                             <th>
                                                 <b>N</b>ame
                                             </th>
+                                            <th>Phone</th>
+                                            <th>Product</th>
                                             <th>Categor</th>
-                                            <th>Nursery</th>
-                                            <th>Contact</th>
                                             <th>Price</th>
                                             <th>Image</th>
                                             <th>Status</th>
@@ -59,12 +59,12 @@
                                         @foreach ($orders as $order)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $order->name }}</td>
-                                                <td>{{ $order->category }}</td>
-                                                <td>{{ $order->user->name }}</td>
-                                                <td>{{ $order->user->phone }}</td>
-                                                <td>$ {{ $order->price }}</td>
-                                                <td><img src="{{asset('/storage/product-images/'.$order->product->image)}}" alt="{{$order->product->image}}" height="50" width="60"/></td>
+                                                <td>{{ $order->user_name }}</td>
+                                                <td>{{ $order->user_phone }}</td>
+                                                <td>{{ $order->product_name }}</td>
+                                                <td>{{ $order->product_category }}</td>
+                                                <td>{{ $order->product_price }}</td>
+                                                <td><img src="{{asset('/storage/product-images/'.$order->product_image)}}" alt="{{$order->product_image}}" height="50" width="60"/></td>
                                                 <td class="green"><span
                                                         class="badge bg-warning">{{ $order->status }}</span></td>
                                             </tr>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Backend\NurseryOwner;
 
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,6 +48,22 @@ class NurseryDashboardController extends Controller
         return view('backend.nursery-owner.pages.faq.index');
     }
     public function orderList(){
-        return view('backend.nursery-owner.pages.order-list.index');
+        $userId = Auth::user()->id;
+        $orders = DB::table('orders')
+        ->join('users as user', 'orders.user_id', '=', 'user.id')
+        ->join('products', 'orders.product_id', '=', 'products.id')
+        ->where('orders.nursery_id', $userId)
+        ->select(
+            'orders.*',
+            'user.name as user_name',
+            'user.phone as user_phone',
+            'products.name as product_name',
+            'products.price as product_price',
+            'products.category as product_category',
+            'products.image as product_image'
+        )
+        ->orderBy('orders.id', 'DESC')
+        ->get();
+        return view('backend.nursery-owner.pages.order-list.index', compact('orders'));
     }
 }

@@ -18,6 +18,11 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->unsignedBigInteger('nursery_id');
+            $table->foreign('nursery_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')
                 ->references('id')
