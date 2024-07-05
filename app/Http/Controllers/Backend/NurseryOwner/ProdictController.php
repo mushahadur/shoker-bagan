@@ -19,7 +19,6 @@ class ProdictController extends Controller
         $products = Product::where('user_id', $userId)->orderBy('id', 'DESC')->get();
         return view('backend.nursery-owner.pages.product.index', compact('products'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -33,7 +32,6 @@ class ProdictController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        // dd($request->all());
         $product = new Product();
         if ($request->hasFile('image')) {
             $destinationPath= 'public/product-images/';

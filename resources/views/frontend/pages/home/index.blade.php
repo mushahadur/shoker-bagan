@@ -27,7 +27,7 @@
           <!--  Section Title -->
           <div class="container section-title" >
             <h2>Recent Products</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <p>"Shoker Bagan" recently introduced a premium subscription service that offers exclusive access to advanced gardening tips, personalized advice from top horticulture experts, and significant discounts on high-quality gardening supplies. Additionally, we have launched a new feature that allows users to schedule real-time consultations with gardening consultants directly through the platform, ensuring timely and expert guidance for all their gardening needs.</p>
           </div><!-- End Section Title -->
     
           <div class="container">
@@ -198,7 +198,7 @@
         <!--  Section Title -->
         <div class="container section-title" data-aos="fade-up">
           <h2>Buy Now</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+          <p>We have launched a new feature that allows users to schedule real-time consultations with gardening consultants directly through the platform, ensuring timely and expert guidance for all their gardening needs.</p>
         </div><!-- End Section Title -->
         <div class="container layout_padding">
           <div class="product_container">

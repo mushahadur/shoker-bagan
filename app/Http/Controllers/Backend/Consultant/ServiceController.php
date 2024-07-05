@@ -16,23 +16,13 @@ class ServiceController extends Controller
     {
         $userId = Auth::user()->id;
         $check = Consultant::where('user_id', $userId)->first();
-        // dd( $check);
         $serviceList = Consultant::where('user_id', $userId)->orderBy('id', 'DESC')->get();
-        // dd( $serviceList);
         return view('backend.consultant.pages.service.index', compact('serviceList', 'check'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('backend.consultant.pages.service.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $service = new Consultant();

@@ -14,7 +14,6 @@ class ConOrderController extends Controller
     public function index()
     {
         $userId = Auth::user()->id;
-
         $orders = DB::table('orders')
             ->join('users as nurseries', 'orders.nursery_id', '=', 'nurseries.id')
             ->join('products', 'orders.product_id', '=', 'products.id')
@@ -29,14 +28,12 @@ class ConOrderController extends Controller
             )
             ->orderBy('orders.id', 'DESC')
             ->get();
-
         return view('backend.consultant.pages.order.index', compact('orders'));
     }
     public function orderHistory()
     {
         return view('backend.consultant.pages.order.history');
     }
-
     public function confirmOrder($nursery_id, $product_id)
     {
         $userId = Auth::user()->id;

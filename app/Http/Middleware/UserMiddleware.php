@@ -16,21 +16,18 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::check()){
+        if (!Auth::check()) {
             return redirect()->route('login');
         }
 
         $uerRole = $request->user()->role;
-        if($uerRole == 1){
+        if ($uerRole == 1) {
             return redirect()->route('admin.dashboard');
-        }
-        elseif($uerRole == 2){
+        } elseif ($uerRole == 2) {
             return redirect()->route('nurseryOwner.dashboard');
-        }
-        elseif($uerRole == 3){
+        } elseif ($uerRole == 3) {
             return redirect()->route('consultant.dashboard');
-        }
-        elseif($uerRole == 4){
+        } elseif ($uerRole == 4) {
             return $next($request);
         }
     }

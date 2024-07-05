@@ -3,29 +3,26 @@
 namespace App\Http\Controllers\Backend\User;
 
 use App\Models\User;
-use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class UserDashboardController extends Controller
 {
-    
-    public function index(){
+
+    public function index()
+    {
         return view('backend.user.dashboard');
-        $sessionId = Session::getId();
     }
-    public function profile(){
+    public function profile()
+    {
         $user = Auth::user();
         return view('backend.user.pages.profile.index', compact('user'));
-        // return view('backend.user.pages.profile.index');
     }
     public function profileUpdate(Request $request, $id)
     {
         $user = User::find($id);
-        // dd($request->all());
         if ($request->hasFile('image')) {
             $destinationPath = 'public/user/profile-images/';
             $image = $request->file('image');
@@ -33,7 +30,6 @@ class UserDashboardController extends Controller
             $image->storeAs($destinationPath, $fileName);
             $user->image = $fileName;
         }
-
         $user->name = $request->name;
         $user->email = $request->email;
         $user->description = $request->description;
@@ -47,10 +43,12 @@ class UserDashboardController extends Controller
         $user->update();
         return redirect(route('user.profile'))->with('message', 'Active Status update to Inactive successfully.');
     }
-    public function faq(){
+    public function faq()
+    {
         return view('backend.user.pages.faq.index');
     }
-    public function contactConsultants(){
+    public function contactConsultants()
+    {
         $userId = Auth::user()->id;
         $appointments = DB::table('appointments')
             ->join('users as u', 'appointments.user_id', '=', 'u.id') // User
@@ -78,9 +76,10 @@ class UserDashboardController extends Controller
             ->where('c.role', 3) // Ensure 'c' is a consultant with role 3
             ->orderBy('appointments.id', 'DESC')
             ->get();
-        return view('backend.user.pages.consultant.index',compact('appointments'));
+        return view('backend.user.pages.consultant.index', compact('appointments'));
     }
-    public function contactConsultantsHistory(){
+    public function contactConsultantsHistory()
+    {
         return view('backend.user.pages.consultant.contact-history');
     }
 }

@@ -16,7 +16,6 @@ class UserOrderController extends Controller
     public function index()
     {
         $userId = Auth::user()->id;
-
         $orders = DB::table('orders')
             ->join('users as nurseries', 'orders.nursery_id', '=', 'nurseries.id')
             ->join('products', 'orders.product_id', '=', 'products.id')
@@ -55,8 +54,6 @@ class UserOrderController extends Controller
             return "Order Not Confirm ! Please try again..";
         }
     }
-
-
     public function confirmAppointment($user_id, $consultant_id)
     {
         $appointment = new Appointment();
