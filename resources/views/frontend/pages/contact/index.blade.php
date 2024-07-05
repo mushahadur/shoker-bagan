@@ -32,7 +32,7 @@ Contact Page
     <!--  Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Contact</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <p>For any inquiries or support, please contact us at support@shokerbagan.com.</p>
     </div><!-- End Section Title -->
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">

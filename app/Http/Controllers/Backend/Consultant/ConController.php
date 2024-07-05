@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class ConController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('backend.consultant.dashboard');
-        $sessionId = Session::getId();
     }
-    public function profile(){
+    public function profile()
+    {
         $user = Auth::user();
         return view('backend.consultant.pages.profile.index', compact('user'));
     }
@@ -29,7 +29,6 @@ class ConController extends Controller
             $image->storeAs($destinationPath, $fileName);
             $user->image = $fileName;
         }
-
         $user->name = $request->name;
         $user->email = $request->email;
         $user->description = $request->description;
@@ -43,14 +42,13 @@ class ConController extends Controller
         $user->update();
         return redirect(route('consultant.profile'))->with('message', 'Active Status update to Inactive successfully.');
     }
-    public function faq(){
+    public function faq()
+    {
         return view('backend.consultant.pages.faq.index');
     }
-
-    public function consultantContact(){
+    public function consultantContact()
+    {
         $userId = Auth::user()->id;
-
-        // Join the appointments, users, and consultants tables
         $appointments = DB::table('appointments')
             ->join('users as u', 'appointments.user_id', '=', 'u.id') // User
             ->join('users as c', 'appointments.consultant_id', '=', 'c.id') // Consultant
@@ -60,7 +58,8 @@ class ConController extends Controller
                 'u.email as user_email',
                 'u.phone as user_phone',
                 'u.description as user_description',
-                'u.image as user_image', // Assuming there is an image field for users
+                'u.image as user_image',
+                // Assuming there is an image field for users
                 'c.name as consultant_name',
                 'c.email as consultant_email',
                 'c.phone as consultant_phone',
@@ -70,9 +69,6 @@ class ConController extends Controller
             ->where('c.role', 3) // Ensure 'c' is a consultant with role 3
             ->orderBy('appointments.id', 'DESC')
             ->get();
-
-            // dd($appointments);
-
         return view('backend.consultant.pages.contact.index', compact('appointments'));
     }
 }

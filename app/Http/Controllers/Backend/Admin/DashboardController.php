@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-
     public function index()
     {
         return view('backend.admin.dashboard');
@@ -24,7 +23,6 @@ class DashboardController extends Controller
     }
     public function profileUpdate(Request $request, $id)
     {
-        // dd($request->all());
         $user = User::find($id);
         if ($request->hasFile('image')) {
             $destinationPath = 'public/admin/profile-images/';
@@ -46,8 +44,6 @@ class DashboardController extends Controller
         $user->linkedin_link = $request->linkedin_link;
         $user->update();
         return redirect(route('admin.profile'))->with('message', 'Active Status update to Inactive successfully.');
-
-        // return view('backend.admin.pages.profile.index', compact('user'));
     }
 
     public function webVisitor()
@@ -55,7 +51,6 @@ class DashboardController extends Controller
         $visitors = VisitorModel::orderBy('id', 'DESC')->get();
         return view('backend.admin.pages.visitor.index', ['visitors' => $visitors]);
     }
-
     // Service Section
     public function productList()
     {
@@ -84,21 +79,16 @@ class DashboardController extends Controller
 
         return view('backend.admin.pages.service.product.details', compact('product'));
     }
-
-
-    public function consultantList(){
-        $consultants = User::where('role','=','3')->orderBy('id', 'DESC')->get();
+    public function consultantList()
+    {
+        $consultants = User::where('role', '=', '3')->orderBy('id', 'DESC')->get();
         return view('backend.admin.pages.service.consultants.index', compact('consultants'));
     }
-    public function nurseryList(){
-        $nurseryOwners = User::where('role','=','2')->orderBy('id', 'DESC')->get();
+    public function nurseryList()
+    {
+        $nurseryOwners = User::where('role', '=', '2')->orderBy('id', 'DESC')->get();
         return view('backend.admin.pages.service.nursery-owners.index', compact('nurseryOwners'));
     }
-
-
-
-
-
     public function contactList()
     {
         $contacts = Contact::orderBy('id', 'DESC')->get();
