@@ -16,24 +16,18 @@
             <h2 data-aos="fade-up" data-aos-delay="100">Shoker Bagan.com</h2>
             <p data-aos="fade-up" data-aos-delay="200">Welcome to Our Shoker Bagan.com , This is our inovetive service project for gerdening</p>
           </div>
-          <div class="col-lg-5">
-            <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300">
-              <input type="text" class="form-control" placeholder="Search Your Need">
-              <input type="submit" class="btn btn-primary" value="Search">
-            </form>
-          </div>
         </div>
       </div>
 
     </section><!-- End Hero Section -->
 
         <!-- Portfolio Section - Home Page -->
-        <section id="portfolio" class="portfolio">
+        <section class="portfolio">
 
           <!--  Section Title -->
           <div class="container section-title" >
             <h2>Recent Products</h2>
-            <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+            <p>"Shoker Bagan" recently introduced a premium subscription service that offers exclusive access to advanced gardening tips, personalized advice from top horticulture experts, and significant discounts on high-quality gardening supplies. Additionally, we have launched a new feature that allows users to schedule real-time consultations with gardening consultants directly through the platform, ensuring timely and expert guidance for all their gardening needs.</p>
           </div><!-- End Section Title -->
     
           <div class="container">
@@ -160,22 +154,21 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
             <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
+              <div class="icon flex-shrink-0"><i class="bi bi-basket"></i></div>
               <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">User Sevice</a></h4>
-                <p class="description"> If someone goes to his balcony to garden in the roof tub of the house, then he will get various services from there, he can buy everything at his fingertips, also get help from plant advice.</p>
+                <h4 class="title"><a href="{{ route('all.products') }}" class="stretched-link">Pure Product</a></h4>
+                <p class="description">Our city is full of formalized fruits and we can get pure fresh fruits and flowers from here.</p>
               </div>
             </div>
-          </div>
-          <!-- End Service Item -->
+          </div><!-- End Service Item -->
 
           <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="200">
             <div class="service-item d-flex">
               <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
               <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Nursery Owners</a></h4>
+                <h4 class="title"><a href="{{ route('all.nurseryOwners') }}" class="stretched-link">Nursery Owners</a></h4>
                 <p class="description">Nursery owners can sell their seedlings They can sell their nearby fruits and flowers They can sell their gardening tools and get help from plant consultants</p>
               </div>
             </div>
@@ -185,21 +178,13 @@
             <div class="service-item d-flex">
               <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
               <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Plant Expertis</a></h4>
+                <h4 class="title"><a href="{{ route('all.consultants') }}" class="stretched-link">Plant Expertis</a></h4>
                 <p class="description">Here experienced plant consultants can help garden owners and nursery owners with various advice on plants and earn extra income.</p>
               </div>
             </div>
           </div><!-- End Service Item -->
 
-          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-basket"></i></div>
-              <div>
-                <h4 class="title"><a href="services-details.html" class="stretched-link">Pure Product</a></h4>
-                <p class="description">Our city is full of formalized fruits and we can get pure fresh fruits and flowers from here.</p>
-              </div>
-            </div>
-          </div><!-- End Service Item -->
+          
 
         </div>
 
@@ -213,64 +198,38 @@
         <!--  Section Title -->
         <div class="container section-title" data-aos="fade-up">
           <h2>Buy Now</h2>
-          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+          <p>We have launched a new feature that allows users to schedule real-time consultations with gardening consultants directly through the platform, ensuring timely and expert guidance for all their gardening needs.</p>
         </div><!-- End Section Title -->
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3 p-1 thumbnail-container" >
-                <img  class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/1.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/2.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/3.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/5.webp" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
+        <div class="container layout_padding">
+          <div class="product_container">
+            @foreach ($products as $product)
+            @if($product->status == "active")
+              <a href="{{route('home.product.details',$product->id)}}">
+                <div class="product_box">
+                  <div class="product_img-box">
+                    <img src="{{asset('/storage/product-images/'.$product->image)}}" alt="" style="height: 220px">
+                    <span>
+                      Sale
+                    </span>
+                  </div>
+                  <div class="product_detail-box">
+                    <span>
+                      TK. {{$product->price}}
+                    </span>
+                    <p>
+                      {{$product->name}}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            @endif
+            @endforeach 
+          </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 p-1 thumbnail-container" >
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/6.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/7.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/11.webp" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-            <div class="col-md-3 p-1 thumbnail-container">
-                <img class="thumbnail-image" src="{{ asset('/') }}assets/frontend/img/buy/10.jpg" alt="" style="height: 230px; width: 100%;">
-                <div class="thumbnail-middle">
-                  <button class="normal-btn btn">Choose now</button>
-              </div>
-            </div>
-        </div>
-          <!-- Features Item -->
         </div>
       </section><!-- End Features Section -->
+    
+    
 
     <!-- Features Section - Home Page -->
     <section id="features" class="features">
@@ -290,7 +249,12 @@
               Navigating the world of plants can be daunting, but fear not – our team of seasoned plant experts is here to guide you every step of the way.
               With their wealth of experience and passion for all things green, you can trust our plant experts to help you find the perfect solution tailored to your specific needs and preferences.
             </p>
-            <a href="#" class="btn btn-get-started">Get Started</a>
+            <ul>
+              <li><i class="bi bi-check"></i> <span>Available in the Morning time.</span></li>
+              <li><i class="bi bi-check"></i><span> Available in the Evening time.</span></li>
+              <li><i class="bi bi-check"></i> <span>Available in the Night time</span>.</li>
+            </ul>
+            <a href="{{ route('login') }}" class="btn btn-get-started">Get Started</a>
           </div>
           <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
             <div class="image-stack">
@@ -302,17 +266,19 @@
 
         <div class="row gy-4 align-items-stretch justify-content-between features-item ">
           <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
-            <img src="{{ asset('/') }}assets/frontend/img/features-light-3.jpg" class="img-fluid" alt="">
+            <img src="{{ asset('/') }}assets/frontend/img/n1.jpg" class="img-fluid" alt="">
           </div>
           <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
-            <h3>Sunt consequatur ad ut est nulla</h3>
-            <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+            <h3>Services Offered by Nursery Owners on "Shoker Bagan"</h3>
+            <p>Nursery owners play a crucial role in the "Shoker Bagan" ecosystem, offering a wide range of services that cater to the needs of gardening enthusiasts and professional horticulturists alike. The platform is designed to empower nursery owners by providing them with tools and opportunities to expand their businesses and reach a broader audience. Below are the key services that nursery owners can offer through "Shoker Bagan": </p>
             <ul>
-              <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
+              <li><i class="bi bi-check"></i> <span>Manpower Provision.</span></li>
+              <li><i class="bi bi-check"></i><span> Instrument Support.</span></li>
+              <li><i class="bi bi-check"></i> <span>Sale of Trees, Seeds, Flowers, and Fruit</span>.</li>
+              <li><i class="bi bi-check"></i> <span>Soil and Fertilizer Supply</span>.</li>
+              <li><i class="bi bi-check"></i> <span>Instrument Sales and Rentals</span>.</li>
             </ul>
-            <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
+            <a href="{{ route('login') }}" class="btn btn-get-started align-self-start">Get Started</a>
           </div>
         </div><!-- Features Item -->
 
